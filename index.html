@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TJM Junk Removals | Perth's Trusted Junk Removal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .hero-bg { 
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), url('https://picsum.photos/id/1015/2000/1200') center/cover; 
+        }
+        .service-card { transition: all 0.4s ease; }
+        .service-card:hover { transform: translateY(-12px); }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white">
+
+    <!-- NAVBAR -->
+    <nav class="bg-black border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <img src="https://imgur.com/XMnX4vH" alt="TJM Logo" class="h-14">
+            
+            <div class="flex items-center gap-4">
+                <a href="tel:+61411306798" class="hidden sm:flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 px-5 py-3 rounded-2xl text-sm font-semibold">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+61 411 306 798</span>
+                </a>
+                <a href="mailto:tjmjunkremovals@gmail.com" class="hidden sm:flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 px-5 py-3 rounded-2xl text-sm font-semibold">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+                <button onclick="document.getElementById('book').scrollIntoView({ behavior: 'smooth' })" 
+                        class="bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-2xl font-semibold">
+                    BOOK NOW
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg min-h-screen flex items-center relative">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <img src="banner.jpg" 
+                 alt="TJM Junk Removals" 
+                 class="mx-auto mb-10 max-w-4xl rounded-2xl shadow-2xl">
+            
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tighter leading-none mb-6">
+                PERTH'S FASTEST<br>JUNK REMOVAL
+            </h1>
+            <p class="text-2xl text-zinc-300 mb-10">Reliable • Local • Affordable</p>
+            
+            <button onclick="document.getElementById('book').scrollIntoView({ behavior: 'smooth' })" 
+                    class="bg-orange-500 hover:bg-orange-600 text-xl font-bold px-12 py-6 rounded-3xl">
+                BOOK YOUR PICKUP NOW
+            </button>
+        </div>
+    </header>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-24 bg-zinc-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16">What We Remove</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card bg-zinc-800 rounded-3xl overflow-hidden">
+                    <img src="https://worthmoving.com/sites/default/files/inline-images/household-waste-richmond-va-web.jpg" class="w-full h-56 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-3">Household Junk Removal</h3>
+                        <p class="text-zinc-400">Furniture, appliances, mattresses & general household waste.</p>
+                    </div>
+                </div>
+                <div class="service-card bg-zinc-800 rounded-3xl overflow-hidden">
+                    <img src="https://storables.com/wp-content/uploads/2023/11/where-to-dispose-construction-debris-1700383836.jpeg" class="w-full h-56 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-3">Renovation & Construction Waste</h3>
+                        <p class="text-zinc-400">Timber, metal, concrete and renovation debris.</p>
+                    </div>
+                </div>
+                <div class="service-card bg-zinc-800 rounded-3xl overflow-hidden">
+                    <img src="https://4waste.com.au/wp-content/uploads/2019/01/AdobeStock_53799847_web-1-1536x932.jpg" class="w-full h-56 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-3">Green Waste Removal</h3>
+                        <p class="text-zinc-400">Garden waste, branches, grass and landscaping debris.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section id="book" class="py-24 bg-black">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold">Book Your Junk Pickup</h2>
+            </div>
+            <form id="booking-form" class="bg-zinc-900 rounded-3xl p-10 md:p-16 space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Full Name *" required class="bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4">
+                    <input type="tel" placeholder="Phone Number *" required class="bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4">
+                </div>
+                <input type="text" placeholder="Pickup Address *" required class="bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 w-full">
+                <textarea rows="4" placeholder="Describe the junk..." class="bg-zinc-800 border border-zinc-700 rounded-3xl px-6 py-4 w-full"></textarea>
+                
+                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 py-6 text-xl font-bold rounded-3xl">
+                    SUBMIT BOOKING REQUEST
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-black py-12 text-center text-zinc-400">
+        <p>© 2026 TJM Junk Removals • Perth WA</p>
+        <p class="mt-2">+61 411 306 798 • tjmjunkremovals@gmail.com</p>
+    </footer>
+
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("✅ Thank you! Booking request received.\nWe'll call you shortly.");
+            this.reset();
+        });
+    </script>
+</body>
+</html>
