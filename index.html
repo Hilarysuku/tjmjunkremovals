@@ -927,32 +927,34 @@
     const formSuccess = document.getElementById('formSuccess');
     const submitBtn = document.getElementById('submitBtn');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const name = document.getElementById('fullName').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const address = document.getElementById('address').value.trim();
-      const service = document.getElementById('service').value;
-      const description = document.getElementById('description').value.trim();
+    form.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-      if (!name || !phone || !address || !description) {
-        alert('Please fill in all required fields.');
-        return;
-      }
+  const name = document.getElementById('fullName').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const service = document.getElementById('service').value;
+  const description = document.getElementById('description').value.trim();
 
-      submitBtn.classList.add('loading');
-      submitBtn.textContent = 'Sending...';
+  if (!name || !phone || !address || !description) {
+    alert('Please fill in all required fields.');
+    return;
+  }
 
-      const booking = {
-        id: Date.now(),
-        name,
-        phone,
-        address,
-        service,
-        description,
-        date: new Date().toLocaleString('en-AU', { timeZone: 'Australia/Perth' }),
-        status: 'new'
-      };
+  const message = `Hi TJM Junk Removals,
+
+New Booking Request:
+
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+Service: ${service}
+Details: ${description}
+
+Please confirm. Thanks!`;
+
+  window.location.href = `sms:+61411306798?body=${encodeURIComponent(message)}`;
+});
 
       // Save to localStorage (for Admin page)
       const existing = JSON.parse(localStorage.getItem('tjm_bookings') || '[]');
