@@ -33,7 +33,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
     /* NAVBAR */
     .navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -80,7 +79,6 @@
     .btn-outline { background: transparent; color: white; border: 2px solid var(--border); }
     .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
     .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
-
     /* HERO */
     .hero {
       min-height: 100vh; display: flex; align-items: center; position: relative;
@@ -133,6 +131,7 @@
     .truck-illustration {
       width: 100%; height: 220px; background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
       border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+      overflow: hidden;
     }
     .hero-card-info { display: flex; justify-content: space-between; align-items: center; }
     .hero-card-info h3 { font-size: 1.1rem; font-weight: 700; }
@@ -141,7 +140,6 @@
       background: rgba(255,107,0,0.15); color: var(--orange); padding: 6px 14px;
       border-radius: 50px; font-size: 0.8rem; font-weight: 700;
     }
-
     /* SECTIONS */
     .section { padding: 100px 24px; }
     .section-header { text-align: center; max-width: 640px; margin: 0 auto 60px; }
@@ -154,7 +152,6 @@
       font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px;
     }
     .section-header p { color: var(--text-muted); font-size: 1.1rem; }
-
     /* SERVICES */
     .services-grid {
       max-width: 1280px; margin: 0 auto;
@@ -181,7 +178,6 @@
     .service-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; }
     .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
     .service-card .learn { color: var(--orange); font-weight: 600; font-size: 0.9rem; }
-
     /* BEFORE & AFTER */
     .before-after { background: linear-gradient(180deg, var(--bg) 0%, #111 100%); }
     .ba-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
@@ -220,34 +216,6 @@
     .ba-info { padding: 18px 20px; }
     .ba-info h4 { font-weight: 700; margin-bottom: 4px; font-size: 1rem; }
     .ba-info p { color: var(--text-muted); font-size: 0.88rem; }
-    .ba-placeholder {
-      position: absolute; inset: 0; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; color: rgba(255,255,255,0.45);
-      font-size: 0.9rem; font-weight: 600; gap: 8px;
-    }
-
-    /* Different background colours so you can easily replace with real images later */
-    .ba-1 .before { background: linear-gradient(135deg,#3a2a1a,#2a1a0a); }
-    .ba-1 .after  { background: linear-gradient(135deg,#1a2a1a,#0a1a0a); }
-    .ba-2 .before { background: linear-gradient(135deg,#2a2a2a,#1a1a1a); }
-    .ba-2 .after  { background: linear-gradient(135deg,#1a2a2a,#0a1a1a); }
-    .ba-3 .before { background: linear-gradient(135deg,#2a1a2a,#1a0a1a); }
-    .ba-3 .after  { background: linear-gradient(135deg,#1a2a1a,#0a1a0a); }
-    .ba-4 .before { background: linear-gradient(135deg,#2a2a1a,#1a1a0a); }
-    .ba-4 .after  { background: linear-gradient(135deg,#1a1a2a,#0a0a1a); }
-    .ba-5 .before { background: linear-gradient(135deg,#1a2a2a,#0a1a1a); }
-    .ba-5 .after  { background: linear-gradient(135deg,#1a2a1a,#0a1a0a); }
-    .ba-6 .before { background: linear-gradient(135deg,#2a1a1a,#1a0a0a); }
-    .ba-6 .after  { background: linear-gradient(135deg,#1a1a2a,#0a0a1a); }
-    .ba-7 .before { background: linear-gradient(135deg,#1a2a1a,#0a1a0a); }
-    .ba-7 .after  { background: linear-gradient(135deg,#2a2a1a,#1a1a0a); }
-    .ba-8 .before { background: linear-gradient(135deg,#2a2a2a,#111); }
-    .ba-8 .after  { background: linear-gradient(135deg,#1a2a1a,#0a1a0a); }
-    .ba-9 .before { background: linear-gradient(135deg,#2a1a2a,#1a0a1a); }
-    .ba-9 .after  { background: linear-gradient(135deg,#1a2a2a,#0a1a1a); }
-    .ba-10 .before{ background: linear-gradient(135deg,#1a1a2a,#0a0a1a); }
-    .ba-10 .after { background: linear-gradient(135deg,#1a2a1a,#0a1a0a); }
-
     /* HOW IT WORKS */
     .steps {
       max-width: 1000px; margin: 0 auto;
@@ -266,7 +234,6 @@
     }
     .step h4 { font-size: 1.1rem; margin-bottom: 8px; }
     .step p { color: var(--text-muted); font-size: 0.9rem; }
-
     /* BOOKING */
     .booking-section { background: radial-gradient(ellipse at center, rgba(255,107,0,0.08) 0%, transparent 70%); }
     .booking-container {
@@ -312,7 +279,6 @@
       font-size: 2.5rem; color: var(--success); animation: scaleIn 0.5s ease;
     }
     @keyframes scaleIn { from{transform:scale(0)} to{transform:scale(1)} }
-
     /* FOOTER */
     footer { background: #050505; border-top: 1px solid var(--border); padding: 60px 24px 30px; }
     .footer-content {
@@ -331,17 +297,14 @@
       display: flex; justify-content: space-between; align-items: center;
       color: var(--text-muted); font-size: 0.85rem; flex-wrap: wrap; gap: 12px;
     }
-
     .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
-
     .btn.loading { pointer-events: none; opacity: 0.8; }
     .btn.loading::after {
       content: ''; width: 18px; height: 18px; border: 2px solid transparent;
       border-top-color: #000; border-radius: 50%; animation: spin 0.7s linear infinite; margin-left: 8px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-
     @media (max-width: 900px) {
       .nav-links {
         display: none; position: absolute; top: 72px; left: 0; right: 0;
@@ -366,7 +329,6 @@
   </style>
 </head>
 <body>
-
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
@@ -416,9 +378,7 @@
       <div class="hero-visual fade-up">
         <div class="hero-card">
           <div class="truck-illustration">
-            <div class="truck-illustration">
-  <img src="90A8B802-3D4D-4A1D-97B3-8C3D1577FE9D.jpeg" alt="Toyota Hilux with Trailer" style="width:100%; height:100%; object-fit:cover; border-radius:16px;">
-</div>
+            <img src="90A8B802-3D4D-4A1D-97B3-8C3D1577FE9D.jpeg" alt="Toyota Hilux with Trailer" style="width:100%; height:100%; object-fit:cover; border-radius:16px;">
           </div>
           <div class="hero-card-info">
             <div>
@@ -479,7 +439,7 @@
     </div>
   </section>
 
-  <!-- BEFORE & AFTER – 10 ITEMS -->
+  <!-- BEFORE & AFTER -->
   <section class="section before-after" id="before-after">
     <div class="section-header fade-up">
       <div class="label">OUR WORK</div>
@@ -494,186 +454,137 @@
       <button class="ba-tab" data-filter="metal">Metal</button>
     </div>
     <div class="ba-gallery">
-
       <!-- 1 -->
-<div class="ba-item ba-1 fade-up" data-category="household">
-  <div class="ba-images">
-    <div class="before">
-      <img src="CC78448E-6DD0-4B27-A63A-1D5BCD803941.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;">
+      <div class="ba-item ba-1 fade-up" data-category="household">
+        <div class="ba-images">
+          <div class="before"><img src="CC78448E-6DD0-4B27-A63A-1D5BCD803941.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div class="after"><img src="C9995362-6604-4E63-AC2F-59B7DEBD83F7.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;"></div>
+          <span class="ba-label">BEFORE</span>
+          <span class="ba-label after-label">AFTER</span>
+        </div>
+        <div class="ba-info">
+          <h4>Garage & Driveway Clear-Out</h4>
+          <p>Full household junk + old furniture removed in under 2 hours</p>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="ba-item ba-2 fade-up" data-category="renovation">
+        <div class="ba-images">
+          <div class="before"><img src="CDB2325D-C05C-4061-A837-C31FCF96371B.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div class="after"><img src="36E51320-3803-480B-91C6-DA51096147A6.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;"></div>
+          <span class="ba-label">BEFORE</span>
+          <span class="ba-label after-label">AFTER</span>
+        </div>
+        <div class="ba-info">
+          <h4>Front of House Clean Up</h4>
+          <p>Boxes, Old Toys, Household Equipment & metal</p>
+        </div>
+      </div>
+      <!-- 3 -->
+      <div class="ba-item ba-3 fade-up" data-category="green">
+        <div class="ba-images">
+          <div class="before"><img src="42F478AE-1B18-4E99-ADB2-E7B280C36FAB.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div class="after"><img src="1711BB35-2C36-4260-A23F-6D45CFCC2086.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;"></div>
+          <span class="ba-label">BEFORE</span>
+          <span class="ba-label after-label">AFTER</span>
+        </div>
+        <div class="ba-info">
+          <h4>Undercover Storage Full of Boxes and Packaging</h4>
+          <p>Undercover Storage Clear Out of Boxes and Old Packaging</p>
+        </div>
+      </div>
+      <!-- 4 -->
+      <div class="ba-item ba-4 fade-up" data-category="household">
+        <div class="ba-images">
+          <div class="before"><img src="64350B93-E9F2-406D-9C41-D2AF7AC73EE4.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div class="after"><img src="958A3F2C-72A5-408D-AF5F-2ECBBACC65B5.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;"></div>
+          <span class="ba-label">BEFORE</span>
+          <span class="ba-label after-label">AFTER</span>
+        </div>
+        <div class="ba-info">
+          <h4>Back Yard House Clearance</h4>
+          <p>Boxes, Messy Bags, Branches & Play Equipment</p>
+        </div>
+      </div>
+      <!-- 5 -->
+      <div class="ba-item ba-5 fade-up" data-category="metal">
+        <div class="ba-images">
+          <div class="before"><img src="E0AAC3E3-568D-48F4-A0EE-80FE0B4B4412.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div class="after"><img src="1208FC00-96F4-4682-8AEF-049ABE2F1F84 (1).jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;"></div>
+          <span class="ba-label">BEFORE</span>
+          <span class="ba-label after-label">AFTER</span>
+        </div>
+        <div class="ba-info">
+          <h4>Old Sofa & Mattress Removal</h4>
+          <p>Broken Sofas and Mattresses on the porch</p>
+        </div>
+      </div>
+      <!-- 6 -->
+      <div class="ba-item ba-6 fade-up" data-category="household">
+        <div class="ba-images">
+          <div class="before"><img src="B57C4454-F1E8-4865-96E1-2612E4132885.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div class="after"><img src="9322557B-8313-4CB2-9B14-B05B1883AF78.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;"></div>
+          <span class="ba-label">BEFORE</span>
+          <span class="ba-label after-label">AFTER</span>
+        </div>
+        <div class="ba-info">
+          <h4>Nature Strip Furniture Dump</h4>
+          <p>Old Furniture, Chairs & other Outdoor Equipment</p>
+        </div>
+      </div>
+      <!-- 7 -->
+      <div class="ba-item ba-7 fade-up" data-category="renovation">
+        <div class="ba-images">
+          <div class="before"><img src="90251CAB-E16B-4EE4-A8D5-6CEAED649745.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div class="after"><img src="6D1B8A47-726A-4E8F-855E-7525DFF4315D.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;"></div>
+          <span class="ba-label">BEFORE</span>
+          <span class="ba-label after-label">AFTER</span>
+        </div>
+        <div class="ba-info">
+          <h4>Side Path & Shed Clean Up</h4>
+          <p>Dirty Path with Junk</p>
+        </div>
+      </div>
+      <!-- 8 -->
+      <div class="ba-item ba-8 fade-up" data-category="green">
+        <div class="ba-images">
+          <div class="before"><img src="558EF522-2BC8-4F3F-B3B0-6CF6288DECB5.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div class="after"><img src="B2C92D08-F9BD-4656-9453-CF404DBAE89C.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;"></div>
+          <span class="ba-label">BEFORE</span>
+          <span class="ba-label after-label">AFTER</span>
+        </div>
+        <div class="ba-info">
+          <h4>Back Yard Green Waste Removal</h4>
+          <p>Branches, leaves & garden waste removed</p>
+        </div>
+      </div>
+      <!-- 9 -->
+      <div class="ba-item ba-9 fade-up" data-category="household">
+        <div class="ba-images">
+          <div class="before"><img src="34CAFC18-3902-4108-92FB-89ECE0461816.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div class="after"><img src="519BF17A-F884-4AB2-8FB5-37A603F943A7.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;"></div>
+          <span class="ba-label">BEFORE</span>
+          <span class="ba-label after-label">AFTER</span>
+        </div>
+        <div class="ba-info">
+          <h4>Full House Junk Removal</h4>
+          <p>Piles of boxes, Packaging & House Junk</p>
+        </div>
+      </div>
+      <!-- 10 -->
+      <div class="ba-item ba-10 fade-up" data-category="renovation">
+        <div class="ba-images">
+          <div class="before"><img src="6FE9C065-3D52-4EDC-894D-FB11BFA0D584.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div class="after"><img src="7F2ECD38-15B8-4268-AE52-2B5B0365BFF4.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;"></div>
+          <span class="ba-label">BEFORE</span>
+          <span class="ba-label after-label">AFTER</span>
+        </div>
+        <div class="ba-info">
+          <h4>Kids Toys & Outdoor Junk Removal</h4>
+          <p>Branches, Soil bags & Old Toys</p>
+        </div>
+      </div>
     </div>
-    <div class="after">
-      <img src="C9995362-6604-4E63-AC2F-59B7DEBD83F7.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <span class="ba-label">BEFORE</span>
-    <span class="ba-label after-label">AFTER</span>
-  </div>
-  <div class="ba-info">
-    <h4>Garage & Driveway Clear-Out</h4>
-    <p>Full household junk + old furniture removed in under 2 hours</p>
-  </div>
-</div>
-
-<!-- 2 -->
-<div class="ba-item ba-2 fade-up" data-category="renovation">
-  <div class="ba-images">
-    <div class="before">
-      <img src="CDB2325D-C05C-4061-A837-C31FCF96371B.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <div class="after">
-      <img src="36E51320-3803-480B-91C6-DA51096147A6.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <span class="ba-label">BEFORE</span>
-    <span class="ba-label after-label">AFTER</span>
-  </div>
-  <div class="ba-info">
-    <h4>Front of House Clean Up</h4>
-    <p>Boxes, Old Toys, Household Equipment & metal</p>
-  </div>
-</div>
-
-<!-- 3 -->
-<div class="ba-item ba-3 fade-up" data-category="green">
-  <div class="ba-images">
-    <div class="before">
-      <img src="42F478AE-1B18-4E99-ADB2-E7B280C36FAB.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <div class="after">
-      <img src="1711BB35-2C36-4260-A23F-6D45CFCC2086.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <span class="ba-label">BEFORE</span>
-    <span class="ba-label after-label">AFTER</span>
-  </div>
-  <div class="ba-info">
-    <h4>Undercover Storage Full of Boxes and Packaging</h4>
-    <p>Undecover Storage Clear Out of Boxes and Old Packaging</p>
-  </div>
-</div>
-
-<!-- 4 -->
-<div class="ba-item ba-4 fade-up" data-category="household">
-  <div class="ba-images">
-    <div class="before">
-      <img src="64350B93-E9F2-406D-9C41-D2AF7AC73EE4.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <div class="after">
-      <img src="958A3F2C-72A5-408D-AF5F-2ECBBACC65B5.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <span class="ba-label">BEFORE</span>
-    <span class="ba-label after-label">AFTER</span>
-  </div>
-  <div class="ba-info">
-    <h4>Back Yard House Clearance</h4>
-    <p>Boxes, Messy Bags, Branches & Play Equipment</p>
-  </div>
-</div>
-
-<!-- 5 -->
-<div class="ba-item ba-5 fade-up" data-category="metal">
-  <div class="ba-images">
-    <div class="before">
-      <img src="E0AAC3E3-568D-48F4-A0EE-80FE0B4B4412.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <div class="after">
-      <img src="1208FC00-96F4-4682-8AEF-049ABE2F1F84 (1).jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <span class="ba-label">BEFORE</span>
-    <span class="ba-label after-label">AFTER</span>
-  </div>
-  <div class="ba-info">
-    <h4>Old Sofa & Mattress Removal</h4>
-    <p>Broken Sofas and Mattresses on the porch</p>
-  </div>
-</div>
-
-<!-- 6 -->
-<div class="ba-item ba-6 fade-up" data-category="household">
-  <div class="ba-images">
-    <div class="before">
-      <img src="B57C4454-F1E8-4865-96E1-2612E4132885.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <div class="after">
-      <img src="9322557B-8313-4CB2-9B14-B05B1883AF78.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <span class="ba-label">BEFORE</span>
-    <span class="ba-label after-label">AFTER</span>
-  </div>
-  <div class="ba-info">
-    <h4>Nature Strip Furniture Dump</h4>
-    <p>Old Furniture, Chairs & other Outdoor Equipment</p>
-  </div>
-</div>
-
-<!-- 7 -->
-<div class="ba-item ba-7 fade-up" data-category="renovation">
-  <div class="ba-images">
-    <div class="before">
-      <img src="90251CAB-E16B-4EE4-A8D5-6CEAED649745.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <div class="after">
-      <img src="6D1B8A47-726A-4E8F-855E-7525DFF4315D.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <span class="ba-label">BEFORE</span>
-    <span class="ba-label after-label">AFTER</span>
-  </div>
-  <div class="ba-info">
-    <h4>Side Path & Shed Clean Up</h4>
-    <p>Dirty Path with Junk</p>
-  </div>
-</div>
-
-<!-- 8 -->
-<div class="ba-item ba-8 fade-up" data-category="green">
-  <div class="ba-images">
-    <div class="before">
-      <img src="558EF522-2BC8-4F3F-B3B0-6CF6288DECB5.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <div class="after">
-      <img src="B2C92D08-F9BD-4656-9453-CF404DBAE89C.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <span class="ba-label">BEFORE</span>
-    <span class="ba-label after-label">AFTER</span>
-  </div>
-  <div class="ba-info">
-    <h4>Back Yard Green Waste Removal</h4>
-    <p>Branches, leaves & garden waste removed</p>
-  </div>
-</div>
-
-<!-- 9 -->
-<div class="ba-item ba-9 fade-up" data-category="household">
-  <div class="ba-images">
-    <div class="before">
-      <img src="34CAFC18-3902-4108-92FB-89ECE0461816.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <div class="after">
-      <img src="519BF17A-F884-4AB2-8FB5-37A603F943A7.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <span class="ba-label">BEFORE</span>
-    <span class="ba-label after-label">AFTER</span>
-  </div>
-  <div class="ba-info">
-    <h4>Full House Junk Removal</h4>
-    <p>Piles of boxes, Packaging & House Junk</p>
-  </div>
-</div>
-
-<!-- 10 -->
-<div class="ba-item ba-10 fade-up" data-category="renovation">
-  <div class="ba-images">
-    <div class="before">
-      <img src="6FE9C065-3D52-4EDC-894D-FB11BFA0D584.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <div class="after">
-      <img src="7F2ECD38-15B8-4268-AE52-2B5B0365BFF4.jpeg" alt="After" style="width:100%; height:100%; object-fit:cover;">
-    </div>
-    <span class="ba-label">BEFORE</span>
-    <span class="ba-label after-label">AFTER</span>
-  </div>
-  <div class="ba-info">
-    <h4>Kids Toys & Outdoor Junk Removal</h4>
-    <p>Branches, Soil bags & Old Toys</p>
-  </div>
-</div>
   </section>
 
   <!-- HOW IT WORKS -->
@@ -697,7 +608,7 @@
       <div class="step fade-up">
         <div class="step-num">3</div>
         <h4>We Collect</h4>
-        <p>We arrive, loads everything & sweeps up.</p>
+        <p>We arrive, load everything & sweep up.</p>
       </div>
       <div class="step fade-up">
         <div class="step-num">4</div>
@@ -794,13 +705,13 @@
   </section>
 
   <!-- FOOTER -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-brand">
-     <a href="#home" class="logo">
-  <img src="893AA14F-D245-4F12-A963-8BC750988762.jpeg" alt="TJM Logo" style="height:48px; width:auto; border-radius:8px;">
-  <span>TJM Junk Removals</span>
-</a>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <img src="893AA14F-D245-4F12-A963-8BC750988762.jpeg" alt="TJM Logo" style="height:48px; width:auto; border-radius:8px;">
+          <span>TJM Junk Removals</span>
+        </a>
         <p>Perth's local, reliable & affordable junk removal specialists. Rubbish removal made easy.</p>
       </div>
       <div class="footer-col">
@@ -831,22 +742,7 @@
     </div>
   </footer>
 
-  <!-- EmailJS (optional – paste your keys later) -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    // ========== EMAILJS SETUP ==========
-    // 1. Go to https://www.emailjs.com and create a free account
-    // 2. Create an Email Service + Email Template
-    // 3. Replace the three values below with your own:
-    const EMAILJS_PUBLIC_KEY = 'PeNnBawTAkVdBpqB9';
-    const EMAILJS_SERVICE_ID = 'service_co77sbn';
-    const EMAILJS_TEMPLATE_ID = 'template_ku0czvj';
-
-    // Initialize EmailJS (only if you have real keys)
-    if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY_HERE') {
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-    }
-
     // Navbar
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
@@ -922,26 +818,25 @@
       });
     });
 
-    // Booking form
+    // Booking form - opens SMS with details
     const form = document.getElementById('bookingForm');
     const formSuccess = document.getElementById('formSuccess');
-    const submitBtn = document.getElementById('submitBtn');
 
     form.addEventListener('submit', (e) => {
-  e.preventDefault();
+      e.preventDefault();
 
-  const name = document.getElementById('fullName').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const address = document.getElementById('address').value.trim();
-  const service = document.getElementById('service').value;
-  const description = document.getElementById('description').value.trim();
+      const name = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const service = document.getElementById('service').value;
+      const description = document.getElementById('description').value.trim();
 
-  if (!name || !phone || !address || !description) {
-    alert('Please fill in all required fields.');
-    return;
-  }
+      if (!name || !phone || !address || !description) {
+        alert('Please fill in all required fields.');
+        return;
+      }
 
-  const message = `Hi TJM Junk Removals,
+      const message = `Hi TJM Junk Removals,
 
 New Booking Request:
 
@@ -953,39 +848,8 @@ Details: ${description}
 
 Please confirm. Thanks!`;
 
-  window.location.href = `sms:+61411306798?body=${encodeURIComponent(message)}`;
-});
-
-      // Save to localStorage (for Admin page)
-      const existing = JSON.parse(localStorage.getItem('tjm_bookings') || '[]');
-      existing.unshift(booking);
-      localStorage.setItem('tjm_bookings', JSON.stringify(existing));
-
-      // Optional EmailJS send
-      if (EMAILJS_PUBLIC_KEY !== 'PeNnBawTAkVdBpqB9') {
-        try {
-          await emailjs.send("service_co77sbn", "template_ku0czvj", {
-            from_name: name,
-            phone: phone,
-            address: address,
-            service: service,
-            message: description,
-            to_email: 'tjmjunkremovals@gmail.com'
-          });
-        } catch (err) {
-          console.warn('EmailJS failed (still saved locally):', err);
-        }
-      }
-
-      setTimeout(() => {
-        submitBtn.classList.remove('loading');
-        submitBtn.textContent = 'SUBMIT BOOKING REQUEST';
-        form.style.display = 'none';
-        formSuccess.classList.add('show');
-        document.getElementById('successName').textContent = name.split(' ')[0];
-        document.getElementById('successPhone').textContent = phone;
-      }, 900);
-    ;
+      window.location.href = `sms:+61411306798?body=${encodeURIComponent(message)}`;
+    });
 
     function resetForm() {
       form.reset();
