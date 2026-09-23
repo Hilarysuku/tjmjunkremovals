@@ -255,22 +255,105 @@
     .contact-item a { color: white; text-decoration: none; font-weight: 600; }
     .contact-item a:hover { color: var(--orange); }
     .contact-item span { color: var(--text-muted); font-size: 0.85rem; display: block; }
-    .booking-form { padding: 48px 40px; }
-    .form-group { margin-bottom: 20px; }
+    .booking-form { padding: 40px 36px; position: relative; min-height: 480px; }
+    
+    /* ===== MULTI-STEP FORM ===== */
+    .step-indicator {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #333;
+      transition: var(--transition);
+    }
+    .dot.active { background: #facc15; }
+    .dot.done { background: var(--success); }
+    
+    .step-panel { display: none; animation: fadeIn 0.35s ease; }
+    .step-panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    
+    .step-panel h3 {
+      text-align: center;
+      font-size: 1.55rem;
+      font-weight: 800;
+      margin-bottom: 28px;
+      letter-spacing: -0.5px;
+    }
+    
+    .option-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .option-btn {
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      font-family: inherit;
+      cursor: pointer;
+      border: 1.5px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text);
+      transition: var(--transition);
+      min-width: 140px;
+    }
+    .option-btn:hover {
+      border-color: #555;
+      background: #252525;
+    }
+    .option-btn.selected {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    
+    .step-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .step-nav .btn { min-width: 140px; }
+    .btn-back {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1.5px solid var(--border);
+    }
+    .btn-back:hover { border-color: #555; color: white; }
+    
+    .form-group { margin-bottom: 18px; }
     .form-group label {
       display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--text-muted);
     }
-    .form-group input, .form-group textarea, .form-group select {
+    .form-group input, .form-group textarea {
       width: 100%; background: var(--bg-elevated); border: 1px solid var(--border);
       border-radius: var(--radius-sm); padding: 14px 18px; color: white; font-size: 1rem;
       font-family: inherit; transition: var(--transition);
     }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    .form-group input:focus, .form-group textarea:focus {
       outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255,107,0,0.15);
     }
-    .form-group textarea { min-height: 110px; resize: vertical; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .submit-btn { width: 100%; padding: 16px; font-size: 1.05rem; margin-top: 8px; }
+    .form-group textarea { min-height: 90px; resize: vertical; }
+    
     .form-success { display: none; text-align: center; padding: 40px 20px; }
     .form-success.show { display: block; }
     .form-success .check {
@@ -279,6 +362,7 @@
       font-size: 2.5rem; color: var(--success); animation: scaleIn 0.5s ease;
     }
     @keyframes scaleIn { from{transform:scale(0)} to{transform:scale(1)} }
+    
     /* FOOTER */
     footer { background: #050505; border-top: 1px solid var(--border); padding: 60px 24px 30px; }
     .footer-content {
@@ -320,11 +404,11 @@
       .steps::before { display: none; }
       .booking-container { grid-template-columns: 1fr; }
       .footer-content { grid-template-columns: 1fr 1fr; }
-      .form-row { grid-template-columns: 1fr; }
     }
     @media (max-width: 560px) {
       .steps { grid-template-columns: 1fr; }
       .footer-content { grid-template-columns: 1fr; }
+      .option-btn { min-width: 120px; padding: 12px 20px; font-size: 0.95rem; }
     }
   </style>
 </head>
@@ -454,7 +538,7 @@
       <button class="ba-tab" data-filter="metal">Metal</button>
     </div>
     <div class="ba-gallery">
-      <!-- 1 -->
+      <!-- keep all your existing before/after items exactly the same -->
       <div class="ba-item ba-1 fade-up" data-category="household">
         <div class="ba-images">
           <div class="before"><img src="CC78448E-6DD0-4B27-A63A-1D5BCD803941.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -467,7 +551,6 @@
           <p>Full household junk + old furniture removed in under 2 hours</p>
         </div>
       </div>
-      <!-- 2 -->
       <div class="ba-item ba-2 fade-up" data-category="renovation">
         <div class="ba-images">
           <div class="before"><img src="CDB2325D-C05C-4061-A837-C31FCF96371B.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -480,7 +563,6 @@
           <p>Boxes, Old Toys, Household Equipment & metal</p>
         </div>
       </div>
-      <!-- 3 -->
       <div class="ba-item ba-3 fade-up" data-category="green">
         <div class="ba-images">
           <div class="before"><img src="42F478AE-1B18-4E99-ADB2-E7B280C36FAB.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -493,7 +575,6 @@
           <p>Undercover Storage Clear Out of Boxes and Old Packaging</p>
         </div>
       </div>
-      <!-- 4 -->
       <div class="ba-item ba-4 fade-up" data-category="household">
         <div class="ba-images">
           <div class="before"><img src="64350B93-E9F2-406D-9C41-D2AF7AC73EE4.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -506,7 +587,6 @@
           <p>Boxes, Messy Bags, Branches & Play Equipment</p>
         </div>
       </div>
-      <!-- 5 -->
       <div class="ba-item ba-5 fade-up" data-category="metal">
         <div class="ba-images">
           <div class="before"><img src="E0AAC3E3-568D-48F4-A0EE-80FE0B4B4412.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -519,7 +599,6 @@
           <p>Broken Sofas and Mattresses on the porch</p>
         </div>
       </div>
-      <!-- 6 -->
       <div class="ba-item ba-6 fade-up" data-category="household">
         <div class="ba-images">
           <div class="before"><img src="B57C4454-F1E8-4865-96E1-2612E4132885.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -532,7 +611,6 @@
           <p>Old Furniture, Chairs & other Outdoor Equipment</p>
         </div>
       </div>
-      <!-- 7 -->
       <div class="ba-item ba-7 fade-up" data-category="renovation">
         <div class="ba-images">
           <div class="before"><img src="90251CAB-E16B-4EE4-A8D5-6CEAED649745.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -545,7 +623,6 @@
           <p>Dirty Path with Junk</p>
         </div>
       </div>
-      <!-- 8 -->
       <div class="ba-item ba-8 fade-up" data-category="green">
         <div class="ba-images">
           <div class="before"><img src="558EF522-2BC8-4F3F-B3B0-6CF6288DECB5.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -558,7 +635,6 @@
           <p>Branches, leaves & garden waste removed</p>
         </div>
       </div>
-      <!-- 9 -->
       <div class="ba-item ba-9 fade-up" data-category="household">
         <div class="ba-images">
           <div class="before"><img src="34CAFC18-3902-4108-92FB-89ECE0461816.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -571,7 +647,6 @@
           <p>Piles of boxes, Packaging & House Junk</p>
         </div>
       </div>
-      <!-- 10 -->
       <div class="ba-item ba-10 fade-up" data-category="renovation">
         <div class="ba-images">
           <div class="before"><img src="6FE9C065-3D52-4EDC-894D-FB11BFA0D584.jpeg" alt="Before" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -598,7 +673,7 @@
       <div class="step fade-up">
         <div class="step-num">1</div>
         <h4>Book Online</h4>
-        <p>Fill the quick form or call us. Free quotes always.</p>
+        <p>Answer 3 quick questions. Free quotes always.</p>
       </div>
       <div class="step fade-up">
         <div class="step-num">2</div>
@@ -656,47 +731,81 @@
           © 2026 TJM Junk Removals • Local • Reliable • Affordable
         </div>
       </div>
+
+      <!-- ===== NEW MULTI-STEP FORM ===== -->
       <div class="booking-form">
-        <form id="bookingForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fullName">Full Name *</label>
-              <input type="text" id="fullName" name="fullName" required placeholder="John Smith" />
+        <div id="formSteps">
+          <div class="step-indicator" id="stepLabel">STEP 1 OF 3</div>
+          <div class="dots" id="dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+
+          <!-- STEP 1 -->
+          <div class="step-panel active" id="step1">
+            <h3>What do you need removed?</h3>
+            <div class="option-grid" id="typeOptions">
+              <button type="button" class="option-btn" data-value="Household Junk">Household Junk</button>
+              <button type="button" class="option-btn" data-value="Furniture & Appliances">Furniture & Appliances</button>
+              <button type="button" class="option-btn" data-value="Green Waste">Green Waste</button>
+              <button type="button" class="option-btn" data-value="Renovation / Builders Waste">Renovation Waste</button>
+              <button type="button" class="option-btn" data-value="Metal / Scrap">Metal / Scrap</button>
+              <button type="button" class="option-btn" data-value="Full Clear-out / Mixed">Full Clear-out</button>
             </div>
-            <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" required placeholder="0411 000 000" />
+            <div class="step-nav">
+              <button type="button" class="btn btn-primary" id="next1" disabled>Next →</button>
             </div>
           </div>
-          <div class="form-group">
-            <label for="address">Pickup Address *</label>
-            <input type="text" id="address" name="address" required placeholder="123 Example St, Suburb, WA" />
+
+          <!-- STEP 2 -->
+          <div class="step-panel" id="step2">
+            <h3>How big, roughly?</h3>
+            <div class="option-grid" id="sizeOptions">
+              <button type="button" class="option-btn" data-value="Small (few items / half ute)">Small</button>
+              <button type="button" class="option-btn" data-value="Medium (room full / ute load)">Medium</button>
+              <button type="button" class="option-btn" data-value="Large (trailer / truck load)">Large</button>
+            </div>
+            <div class="step-nav">
+              <button type="button" class="btn btn-back" id="back2">← Back</button>
+              <button type="button" class="btn btn-primary" id="next2" disabled>Next →</button>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="service">Service Type</label>
-            <select id="service" name="service">
-              <option value="household">Household Junk Removal</option>
-              <option value="furniture">Furniture Disposal</option>
-              <option value="renovation">Renovation & Builders Waste</option>
-              <option value="green">Green Waste Removal</option>
-              <option value="metal">Metal Removal</option>
-              <option value="commercial">Office & Commercial</option>
-              <option value="other">Other / Mixed</option>
-            </select>
+
+          <!-- STEP 3 -->
+          <div class="step-panel" id="step3">
+            <h3>Almost done — your details</h3>
+            <form id="detailsForm">
+              <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" name="name" required placeholder="John Smith" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="0411 000 000" />
+              </div>
+              <div class="form-group">
+                <label for="address">Pickup Address *</label>
+                <input type="text" id="address" name="address" required placeholder="123 Example St, Suburb, WA" />
+              </div>
+              <div class="form-group">
+                <label for="notes">Anything else? (optional)</label>
+                <textarea id="notes" name="notes" placeholder="e.g. stairs, gate code, best time to call..."></textarea>
+              </div>
+              <div class="step-nav">
+                <button type="button" class="btn btn-back" id="back3">← Back</button>
+                <button type="submit" class="btn btn-primary" id="submitBtn">Get My Quote</button>
+              </div>
+            </form>
           </div>
-          <div class="form-group">
-            <label for="description">Describe the junk *</label>
-            <textarea id="description" name="description" required placeholder="e.g. Old sofa, 3 mattresses, boxes of clothes, some garden waste..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
-            SUBMIT BOOKING REQUEST
-          </button>
-        </form>
+        </div>
+
+        <!-- SUCCESS -->
         <div class="form-success" id="formSuccess">
           <div class="check">✓</div>
-          <h3 style="margin-bottom:12px;">Booking Request Received!</h3>
-          <p style="color:var(--text-muted);margin-bottom:24px;">
-            Thanks <strong id="successName"></strong>! We'll contact you shortly on <strong id="successPhone"></strong> to confirm your pickup.
+          <h3 style="margin-bottom:12px; font-size:1.6rem;">Done — quote on its way.</h3>
+          <p style="color:var(--text-muted); margin-bottom:28px; max-width:320px; margin-left:auto; margin-right:auto;">
+            We’ve received your request. You’ll hear from us shortly on the number you provided.
           </p>
           <button class="btn btn-outline" onclick="resetForm()">Book Another Pickup</button>
         </div>
@@ -803,58 +912,141 @@
       });
     });
 
-    // Service cards → preselect + scroll
+    // Service cards → scroll to book
     document.querySelectorAll('.service-card').forEach(card => {
       card.addEventListener('click', () => {
-        const title = card.querySelector('h3').textContent.toLowerCase();
-        const select = document.getElementById('service');
-        if (title.includes('household')) select.value = 'household';
-        else if (title.includes('furniture')) select.value = 'furniture';
-        else if (title.includes('renovation') || title.includes('builders')) select.value = 'renovation';
-        else if (title.includes('green')) select.value = 'green';
-        else if (title.includes('metal')) select.value = 'metal';
-        else if (title.includes('office') || title.includes('commercial')) select.value = 'commercial';
         document.getElementById('book').scrollIntoView({ behavior: 'smooth' });
       });
     });
 
-    // Booking form - opens SMS with details
-    const form = document.getElementById('bookingForm');
-    const formSuccess = document.getElementById('formSuccess');
+    // ========== MULTI-STEP LOGIC ==========
+    let currentStep = 1;
+    let selectedType = '';
+    let selectedSize = '';
 
-    form.addEventListener('submit', (e) => {
+    const stepLabel = document.getElementById('stepLabel');
+    const dots = document.querySelectorAll('#dots .dot');
+    const panels = {
+      1: document.getElementById('step1'),
+      2: document.getElementById('step2'),
+      3: document.getElementById('step3')
+    };
+
+    function updateUI() {
+      stepLabel.textContent = `STEP ${currentStep} OF 3`;
+      dots.forEach((d, i) => {
+        d.classList.remove('active', 'done');
+        if (i + 1 < currentStep) d.classList.add('done');
+        if (i + 1 === currentStep) d.classList.add('active');
+      });
+      Object.values(panels).forEach(p => p.classList.remove('active'));
+      panels[currentStep].classList.add('active');
+    }
+
+    // Type selection
+    document.querySelectorAll('#typeOptions .option-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#typeOptions .option-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedType = btn.dataset.value;
+        document.getElementById('next1').disabled = false;
+      });
+    });
+
+    // Size selection
+    document.querySelectorAll('#sizeOptions .option-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#sizeOptions .option-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedSize = btn.dataset.value;
+        document.getElementById('next2').disabled = false;
+      });
+    });
+
+    // Navigation
+    document.getElementById('next1').addEventListener('click', () => {
+      if (!selectedType) return;
+      currentStep = 2;
+      updateUI();
+    });
+
+    document.getElementById('back2').addEventListener('click', () => {
+      currentStep = 1;
+      updateUI();
+    });
+
+    document.getElementById('next2').addEventListener('click', () => {
+      if (!selectedSize) return;
+      currentStep = 3;
+      updateUI();
+    });
+
+    document.getElementById('back3').addEventListener('click', () => {
+      currentStep = 2;
+      updateUI();
+    });
+
+    // Final submit → silent email via FormSubmit
+    document.getElementById('detailsForm').addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const name = document.getElementById('fullName').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const address = document.getElementById('address').value.trim();
-      const service = document.getElementById('service').value;
-      const description = document.getElementById('description').value.trim();
+      const notes = document.getElementById('notes').value.trim();
 
-      if (!name || !phone || !address || !description) {
-        alert('Please fill in all required fields.');
+      if (!name || !phone || !address) {
+        alert('Please fill in name, phone and address.');
         return;
       }
 
-      const message = `Hi TJM Junk Removals,
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.classList.add('loading');
+      submitBtn.textContent = 'Sending...';
 
-New Booking Request:
+      // Build the data
+      const formData = new FormData();
+      formData.append('_subject', `New Junk Quote – ${selectedType} (${selectedSize})`);
+      formData.append('_template', 'table');
+      formData.append('Junk Type', selectedType);
+      formData.append('Size', selectedSize);
+      formData.append('Name', name);
+      formData.append('Phone', phone);
+      formData.append('Address', address);
+      formData.append('Notes', notes || 'None');
+      formData.append('_captcha', 'false');
 
-Name: ${name}
-Phone: ${phone}
-Address: ${address}
-Service: ${service}
-Details: ${description}
+      try {
+        // Sends email to tjmjunkremovals@gmail.com – no app opens
+        await fetch('https://formsubmit.co/ajax/tjmjunkremovals@gmail.com', {
+          method: 'POST',
+          body: formData
+        });
 
-Please confirm. Thanks!`;
-
-      window.location.href = `sms:+61411306798?body=${encodeURIComponent(message)}`;
+        // Show success
+        document.getElementById('formSteps').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+      } catch (err) {
+        // Fallback: open SMS if email service fails
+        const msg = `New Quote Request:\nType: ${selectedType}\nSize: ${selectedSize}\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nNotes: ${notes || 'None'}`;
+        window.location.href = `sms:+61411306798?body=${encodeURIComponent(msg)}`;
+      } finally {
+        submitBtn.classList.remove('loading');
+        submitBtn.textContent = 'Get My Quote';
+      }
     });
 
     function resetForm() {
-      form.reset();
-      form.style.display = 'block';
-      formSuccess.classList.remove('show');
+      currentStep = 1;
+      selectedType = '';
+      selectedSize = '';
+      document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      document.getElementById('next1').disabled = true;
+      document.getElementById('next2').disabled = true;
+      document.getElementById('detailsForm').reset();
+      document.getElementById('formSteps').style.display = 'block';
+      document.getElementById('formSuccess').classList.remove('show');
+      updateUI();
     }
     window.resetForm = resetForm;
   </script>
